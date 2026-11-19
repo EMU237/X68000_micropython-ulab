@@ -1,3 +1,4 @@
+
 # X68000 (060turbo) + MicroPython + カスタム `ulab` 数学アート＆ベンチマーク検証記録
 
 X68000用 MicroPython（`micropython-x68k`）に自作パッチ（`ulab_patch.diff`）で `ulab`（NumPy / FFT 互換の高速数値計算ライブラリ）を組み込んだカスタムビルド環境において、各種数学アートの描画と MC68060 CPU / FPU ベンチマークを実施した記録です。
@@ -139,6 +140,8 @@ for r_idx in range(n_primes):
 t1 = time.ticks_ms()
 print("GILBREATH_TIME:", time.ticks_diff(t1, t0), "ms")
 ```
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 200702" src="https://github.com/user-attachments/assets/bebb3790-58a8-4013-98a8-bdfb13c7bae5" />
+
 
 ---
 
@@ -186,6 +189,8 @@ for i in range(len(xs)):
 t1 = time.ticks_ms()
 print("SACKS_TIME:", time.ticks_diff(t1, t0), "ms")
 ```
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 200728" src="https://github.com/user-attachments/assets/ebfef166-8611-4f77-8e77-5c96f040cb4c" />
+
 
 ---
 
@@ -288,6 +293,8 @@ print("FFT_TIME:", time.ticks_diff(t_fft_end, t_fft_start), "ms")
 print("TOTAL_TIME:", time.ticks_diff(t_total_end, t_total_start), "ms")
 ```
 
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 200801" src="https://github.com/user-attachments/assets/55f20656-b55f-458f-ad92-93dffe3a0f20" />
+
 ---
 
 ### 5.4 マンデルブロ集合（`mandelbrot_ulab.py`）
@@ -347,6 +354,7 @@ for y in range(HEIGHT):
 t_end = time.ticks_ms()
 print("MANDELBROT_TIME:", time.ticks_diff(t_end, t_start), "ms")
 ```
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 200801" src="https://github.com/user-attachments/assets/e9f9fdd8-a0e5-45bb-bf6b-a0c5dee4c825" />
 
 ---
 
@@ -481,3 +489,4 @@ while True:
 
 x68k.vpage(1)
 print("Stopped.")
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 201539" src="https://github.com/user-attachments/assets/23bf570f-4bc4-4973-9cd6-768e17ab87e5" />
