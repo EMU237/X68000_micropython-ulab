@@ -491,7 +491,7 @@ while True:
 x68k.vpage(1)
 print("Stopped.")
 
-<img width="826" height="651" alt="スクリーンショット 2026-11-19 201539" src="https://github.com/user-attachments/assets/4cbeadd4-0a32-446d-862d-0bada34ceade" />
-<img width="826" height="651" alt="スクリーンショット 2026-11-19 201527" src="https://github.com/user-attachments/assets/9709ac89-cf37-42c3-885c-43220e9bca59" />
+```
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 201539" src="https://github.com/user-attachments/assets/72b5c6f9-3824-454f-a24c-d96dacbd9fea" />
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 201527" src="https://github.com/user-attachments/assets/9f8cd3f0-14e7-47d5-a984-01bea632d93c" />
 
-<img width="826" height="651" alt="スクリーンショット 2026-11-19 201539" src="https://github.com/user-attachments/assets/23bf570f-4bc4-4973-9cd6-768e17ab87e5" />
