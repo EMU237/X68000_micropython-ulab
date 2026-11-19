@@ -354,7 +354,8 @@ for y in range(HEIGHT):
 t_end = time.ticks_ms()
 print("MANDELBROT_TIME:", time.ticks_diff(t_end, t_start), "ms")
 ```
-<img width="826" height="651" alt="スクリーンショット 2026-11-19 200801" src="https://github.com/user-attachments/assets/e9f9fdd8-a0e5-45bb-bf6b-a0c5dee4c825" />
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 201008" src="https://github.com/user-attachments/assets/5b9a148b-d6f2-4fbe-baf6-f67b4ca7fd69" />
+
 
 ---
 
@@ -489,4 +490,8 @@ while True:
 
 x68k.vpage(1)
 print("Stopped.")
+
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 201539" src="https://github.com/user-attachments/assets/4cbeadd4-0a32-446d-862d-0bada34ceade" />
+<img width="826" height="651" alt="スクリーンショット 2026-11-19 201527" src="https://github.com/user-attachments/assets/9709ac89-cf37-42c3-885c-43220e9bca59" />
+
 <img width="826" height="651" alt="スクリーンショット 2026-11-19 201539" src="https://github.com/user-attachments/assets/23bf570f-4bc4-4973-9cd6-768e17ab87e5" />
