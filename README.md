@@ -1,4 +1,4 @@
-
+[English](README_en.md)
 # X68000 (060turbo) + MicroPython + カスタム `ulab` 数学アート＆ベンチマーク検証記録
 
 X68000用 MicroPython（`micropython-x68k`）に自作パッチ（`ulab_patch.diff`）で `ulab`（NumPy / FFT 互換の高速数値計算ライブラリ）を組み込んだカスタムビルド環境において、各種数学アートの描画と MC68060 CPU / FPU ベンチマークを実施した記録です。
