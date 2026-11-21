@@ -437,15 +437,10 @@ for py in range(HEIGHT):
             g.pset(px, py, col)
 
     if py % 32 == 0:
-        now = time.ticks_ms()
-        elapsed = time.ticks_diff(now, t_start)
-        section = time.ticks_diff(now, t_prev)
-
-        print("line", py,
-              "total", elapsed,
-              "section", section)
-
-        t_prev = now
+        elapsed = time.ticks_diff(
+            time.ticks_ms(), t_start
+        )
+        print("line", py, "time", elapsed)
 
 # ----------------------------------------
 # Benchmark
