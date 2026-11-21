@@ -1,3 +1,4 @@
+[日本語](README.md)
 # micropython-x68k-ulab: Custom `ulab` Port & Math Art Benchmarks for X68000 (060turbo)
 
 A custom build of MicroPython for Sharp X68000 (`micropython-x68k`) with `ulab` (a fast NumPy / FFT-compatible numerical computing library) integrated via custom patches, along with mathematical art demos and CPU/FPU benchmark records.
