@@ -95,7 +95,7 @@ a.flatten()  # TypeError: can't convert complex to float
 
 ## 動作確認の方法
 
-今回使用したスクリプト（リポジトリへの収録・配置先は未定）：
+今回使用したスクリプト（リポジトリへの収録・配置先はtests/）：
 
 - `ulab_capability_check.py`：基本機能17項目。**17項目が実行でき、例外0件**。このうち1項目はAPI名の存在確認のみ。
 - `ulab_limits_check.py`：境界・制限22項目。**PASS 13 / LIMIT 4 / FAIL 1 / INFO 4**。
