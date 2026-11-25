@@ -6,10 +6,10 @@ try:
     import ulab
     from ulab import numpy as np
 except ImportError:
-    print("ulab ‚ª import ‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½Bƒrƒ‹ƒhó‘Ô‚ğŠm”F‚µ‚Ä‚­‚¾‚³‚¢B")
+    print("ulab ãŒ import ã§ãã¾ã›ã‚“ã§ã—ãŸã€‚ãƒ“ãƒ«ãƒ‰çŠ¶æ…‹ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚")
     raise SystemExit
 
-# •\¦—pƒwƒ‹ƒp
+# è¡¨ç¤ºç”¨ãƒ˜ãƒ«ãƒ‘
 def show(title, obj):
     print("===" + title + " ===")
     try:
@@ -27,17 +27,17 @@ def safe_test(name, func):
         func()
         ok = True
     except MemoryError:
-        print("MemoryError ‚ª”­¶‚µ‚Ü‚µ‚½B")
+        print("MemoryError ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚")
         ok = False
     except Exception as e:
-        print("—áŠO‚ª”­¶‚µ‚Ü‚µ‚½:", e)
+        print("ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ:", e)
         ok = False
     t1 = time.ticks_ms()
-    print("Œo‰ßŠÔ: {} ms".format(time.ticks_diff(t1, t0)))
+    print("çµŒéæ™‚é–“: {} ms".format(time.ticks_diff(t1, t0)))
     print()
     return ok
 
-# 1. Šî–{ ndarray / shape / dtype
+# 1. åŸºæœ¬ ndarray / shape / dtype
 def test_basic_array():
     a = np.array([0, 1, 2, 3, 4])
     b = np.zeros(5)
@@ -55,7 +55,7 @@ def test_2d_reshape():
     mt = m.T
     show("transpose", mt)
 
-# 3. —v‘f‰‰Z
+# 3. è¦ç´ æ¼”ç®—
 def test_elementwise():
     x = np.linspace(0, 2.0, 9)
     show("x = linspace(0,2,9)", x)
@@ -64,7 +64,7 @@ def test_elementwise():
     z = x * x + 1.0
     show("z = x*x+1", z)
 
-# 4. ƒXƒ‰ƒCƒX
+# 4. ã‚¹ãƒ©ã‚¤ã‚¹
 def test_slicing():
     a = np.arange(10)
     show("a", a)
@@ -83,7 +83,7 @@ def test_reductions():
     try:
         print("mean(a) =", float(np.mean(a)))
     except Exception as e:
-        print("mean ‚Í–¢À‘•‚©‚à‚µ‚ê‚Ü‚¹‚ñ:", e)
+        print("mean ã¯æœªå®Ÿè£…ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“:", e)
     print()
 
 # 6. dot / matmul
@@ -114,30 +114,30 @@ def test_fft_if_available():
     except ImportError:
         pass
 
-    print("‚±‚ÌŠÂ‹«‚É‚Í FFT ‚ª‚ ‚è‚Ü‚¹‚ñBƒXƒLƒbƒv‚µ‚Ü‚·B")
+    print("ã“ã®ç’°å¢ƒã«ã¯ FFT ãŒã‚ã‚Šã¾ã›ã‚“ã€‚ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚")
 
-# 8. ndarray ƒƒ\ƒbƒh repeati‚ ‚È‚½‚ÌŠÂ‹«—pj
+# 8. ndarray ãƒ¡ã‚½ãƒƒãƒ‰ repeatï¼ˆã‚ãªãŸã®ç’°å¢ƒç”¨ï¼‰
 def test_repeat_method():
     a = np.array([1, 2, 3], dtype=np.int16)
     show("a", a)
 
-    # ƒXƒJƒ‰[ repeat
+    # ã‚¹ã‚«ãƒ©ãƒ¼ repeat
     try:
         r1 = a.repeat(2)
         show("a.repeat(2)", r1)
     except Exception as e:
         print("a.repeat(2) ERROR:", e)
 
-    # ”z—ñ repeat
+    # é…åˆ— repeat
     try:
         r2 = a.repeat([1, 3, 2])
         show("a.repeat([1,3,2])", r2)
     except Exception as e:
         print("a.repeat([1,3,2]) ERROR:", e)
 
-# 9. ƒƒ‚ƒŠŒÀŠE
+# 9. ãƒ¡ãƒ¢ãƒªé™ç•Œ
 def test_memory_limit():
-    print("ƒƒ‚ƒŠŒÀŠEƒeƒXƒg: 2ŸŒ³”z—ñ‚ÌƒTƒCƒY‚ğ‘‚â‚µ‚Ä‚İ‚Ü‚·B")
+    print("ãƒ¡ãƒ¢ãƒªé™ç•Œãƒ†ã‚¹ãƒˆ: 2æ¬¡å…ƒé…åˆ—ã®ã‚µã‚¤ã‚ºã‚’å¢—ã‚„ã—ã¦ã¿ã¾ã™ã€‚")
     n = 64
     while True:
         try:
@@ -145,10 +145,10 @@ def test_memory_limit():
             print("OK: zeros(({0},{0}))".format(n))
             n *= 2
             if n > 2048:
-                print("n ‚ª 2048 ‚ğ’´‚¦‚½‚Ì‚Å‘Å‚¿Ø‚è‚Ü‚·B")
+                print("n ãŒ 2048 ã‚’è¶…ãˆãŸã®ã§æ‰“ã¡åˆ‡ã‚Šã¾ã™ã€‚")
                 break
         except MemoryError:
-            print("‚±‚±‚Å MemoryError:", n, "x", n)
+            print("ã“ã“ã§ MemoryError:", n, "x", n)
             break
     print()
 # 10. flatten
@@ -156,14 +156,14 @@ def test_flatten():
     a = np.arange(12).reshape((3,4))
     show("a", a)
 
-    # ndarray ƒƒ\ƒbƒh flatten
+    # ndarray ãƒ¡ã‚½ãƒƒãƒ‰ flatten
     try:
         f = a.flatten()
         show("a.flatten()", f)
     except Exception as e:
         print("a.flatten() ERROR:", e)
 
-    # numpy.flatten ‚ª‘¶İ‚·‚é‚©ƒ`ƒFƒbƒN
+    # numpy.flatten ãŒå­˜åœ¨ã™ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
     if hasattr(np, "flatten"):
         try:
             f2 = np.flatten(a)
@@ -171,7 +171,7 @@ def test_flatten():
         except Exception as e:
             print("np.flatten(a) ERROR:", e)
     else:
-        print("np.flatten ‚Í‚±‚ÌŠÂ‹«‚É‚Í‘¶İ‚µ‚Ü‚¹‚ñB")
+        print("np.flatten ã¯ã“ã®ç’°å¢ƒã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚")
 
 def main():
     tests = [
