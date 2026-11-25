@@ -1,0 +1,73 @@
+=== X68000 ulab limits check (stage 2) ===
+ulab version: 6.11.0-2D-c
+
+--- reshape: view or copy ---
+INFO: source[0,0]=91.0 ; VIEW
+
+--- transpose: view or copy ---
+INFO: source[1,0]=92.0 ; VIEW
+
+--- slice: view or copy ---
+INFO: source[0,1]=93.0 ; VIEW
+
+--- flatten returns independent copy ---
+PASS: source unchanged, copy[0]=94.0
+
+--- flatten of transpose, C and F order ---
+PASS: C: shape=(6,) values=[1.0, 4.0, 2.0, 5.0, 3.0, 6.0] ; F: shape=(6,) values=[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+
+--- flatten of sliced array ---
+PASS: shape=(4,) values=[2.0, 3.0, 5.0, 6.0]
+
+--- reshape noncontiguous transpose ---
+FAIL (wrong value): item 1: got 2.0, expected 4
+
+--- reject reshape with wrong element count ---
+PASS: correctly rejected: ValueError
+
+--- 3D array support ---
+LIMIT/UNSUPPORTED: TypeError too many dimensions
+
+--- 1D @ 2D support ---
+LIMIT/UNSUPPORTED: ValueError matmul: only 2D arrays supported
+
+--- reject incompatible matmul shapes ---
+PASS: correctly rejected: ValueError
+
+--- int16 @ int16 support ---
+PASS: shape=(2, 2) values=[19.0, 22.0, 43.0, 50.0]
+
+--- repeat(axis=0) support ---
+LIMIT/UNSUPPORTED: TypeError function doesn't take keyword arguments
+
+--- complex elementwise arithmetic ---
+PASS: add: shape=(2,) values=[(3+1j), (4+5j)] ; multiply: shape=(2,) values=[(4+3j), (-1+7j)]
+
+--- complex flatten ---
+LIMIT/UNSUPPORTED: TypeError can't convert complex to float
+
+--- linalg.det ---
+PASS: det = -2.0
+
+--- linalg.inv ---
+PASS: shape=(2, 2) values=[-2.0, 1.0, 1.5, -0.5]
+
+--- linalg.norm ---
+PASS: norm = 5.0
+
+--- np.convolve ---
+PASS: shape=(4,) values=[1.0, 3.0, 5.0, 3.0]
+
+--- np.arange explicit dtype ---
+PASS: shape=(5,) values=[0, 1, 2, 3, 4]
+
+--- np.linspace explicit dtype ---
+PASS: shape=(5,) values=[0.0, 0.25, 0.5, 0.75, 1.0]
+
+--- np.random API listing ---
+INFO: np.random available=True; functions=['__class__', '__name__', 'Generator', '__dict__']
+
+=== Summary ===
+PASS: 13 LIMIT: 4 FAIL: 1 INFO: 4
+LIMIT does not mean a bug. FAIL needs investigation.
+A passing sample does not guarantee general compatibility.

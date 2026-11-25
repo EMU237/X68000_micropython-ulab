@@ -1,0 +1,97 @@
+=== X68000 ulab capability check ===
+ulab version: 6.11.0-2D-c
+
+--- basic ndarray ---
+array: array([[1.0, 2.0, 3.0],
+       [4.0, 5.0, 6.0]], dtype=float32)
+shape: (2, 3) ndim: 2 size: 6
+strides: (12, 4)
+RESULT: executed (verify values above)
+
+--- element-wise and reductions ---
+a + 10: array([11.0, 12.0, 13.0], dtype=float32)
+a * 2 - 1: array([1.0, 3.0, 5.0], dtype=float32)
+sum/mean/min/max: 6.0 2.0 1.0 3.0
+RESULT: executed (verify values above)
+
+--- slice and broadcasting ---
+column 1: array([2.0, 5.0], dtype=float32)
+broadcast: array([[11.0, 22.0, 33.0],
+       [14.0, 25.0, 36.0]], dtype=float32)
+RESULT: executed (verify values above)
+
+--- transpose ---
+a.T: array([[1.0, 4.0],
+       [2.0, 5.0],
+       [3.0, 6.0]], dtype=float32)
+a.T shape/strides: (3, 2) (4, 12)
+RESULT: executed (verify values above)
+
+--- reshape ---
+reshape (3,2): array([[1.0, 2.0],
+       [3.0, 4.0],
+       [5.0, 6.0]], dtype=float32)
+shape: (3, 2)
+RESULT: executed (verify values above)
+
+--- reshape -1 ---
+reshape (-1,2): array([[1.0, 2.0],
+       [3.0, 4.0],
+       [5.0, 6.0]], dtype=float32)
+RESULT: executed (verify values above)
+
+--- flatten C-order ---
+flatten C: array([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], dtype=float32)
+shape: (6,)
+RESULT: executed (verify values above)
+
+--- flatten F-order ---
+flatten F (expect 1,4,2,5,3,6): array([1.0, 4.0, 2.0, 5.0, 3.0, 6.0], dtype=float32)
+RESULT: executed (verify values above)
+
+--- repeat scalar ---
+repeat(2): array([1.0, 1.0, 2.0, 2.0, 3.0, 3.0], dtype=float32)
+RESULT: executed (verify values above)
+
+--- repeat per element ---
+repeat([1,3,2]): array([1.0, 2.0, 2.0, 2.0, 3.0, 3.0], dtype=float32)
+RESULT: executed (verify values above)
+
+--- matmul @ ---
+A @ B (expect [[19,22],[43,50]]): array([[19.0, 22.0],
+       [43.0, 50.0]], dtype=float32)
+RESULT: executed (verify values above)
+
+--- numpy.dot ---
+dot(A,B) (expect [[19,22],[43,50]]): array([[19.0, 22.0],
+       [43.0, 50.0]], dtype=float32)
+RESULT: executed (verify values above)
+
+--- FFT ---
+fft([1,0,-1,0]) (expect 0,2,0,2): array([0.0+0.0j, 2.0+0.0j, 0.0+0.0j, 2.0+0.0j], dtype=complex)
+RESULT: executed (verify values above)
+
+--- complex explicit ---
+complex array: array([1.0+2.0j, 3.0+4.0j], dtype=complex)
+real: array([1.0, 3.0], dtype=float32) imag: array([2.0, 4.0], dtype=float32)
+RESULT: executed (verify values above)
+
+--- complex auto inference ---
+complex inferred dtype: array([1.0+2.0j, 3.0+4.0j], dtype=complex)
+RESULT: executed (verify values above)
+
+--- complex abs ---
+abs complex (expect sqrt(5),5): array([2.236068, 5.0], dtype=float32)
+RESULT: executed (verify values above)
+
+--- module presence only ---
+numpy.linalg present: True
+numpy.random present: True
+numpy.convolve present: True
+numpy.arange present: True
+numpy.linspace present: True
+RESULT: executed (verify values above)
+
+=== Summary ===
+Executed: 17 Error: 0
+Execution alone is not proof of correct numerical values.

@@ -1,0 +1,27 @@
+=== X68000 ulab memory probe ===
+
+size: 32 x 32, data bytes (float32): 4096
+free before: 1022640
+PASS: allocation and boundary access
+free with array: 1017680
+free after release: 1022736
+
+size: 64 x 64, data bytes (float32): 16384
+free before: 1022640
+PASS: allocation and boundary access
+free with array: 1005392
+free after release: 1022736
+
+size: 128 x 128, data bytes (float32): 65536
+free before: 1022640
+PASS: allocation and boundary access
+free with array: 956240
+free after release: 1022736
+
+size: 256 x 256, data bytes (float32): 262144
+free before: 1022640
+PASS: allocation and boundary access
+free with array: 759632
+free after release: 1022736
+
+=== done ===
